@@ -144,7 +144,7 @@ section {
 cursor: pointer;
   padding: 0.8em 1em;
   border-radius: 50px;
-  margin: 0px 5px;
+  margin: 0px auto;
   border: none;
   background-color: whitesmoke;
   &--green {
@@ -241,6 +241,13 @@ cursor: pointer;
   }
 }
 .footer {
+  // // position: absolute;
+  // bottom: 0;
+  // width: 90%;
+  // position: fixed;
+  // left: 0;
+  // bottom: 0;
+  // width: 90%;
   background-color: #f8fcfb;
   padding: 1rem 10px;
   display: flex;
@@ -271,6 +278,7 @@ cursor: pointer;
 
   .footer{
     flex-direction: column;
+    margin-top: 200px;
   }
   .btn{
     cursor: pointer;
@@ -286,7 +294,7 @@ margin: 0px 20px;
   display: grid;
   place-items: center;
   justify-content: center;
-  height: 85vh;
+  height: 100vh;
   // background-color: #a9a4b6;
   color: #ffffff;
   &__inner {

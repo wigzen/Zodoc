@@ -183,7 +183,7 @@ section {
   cursor: pointer;
   padding: 0.8em 1em;
   border-radius: 50px;
-  margin: 0px 5px;
+  margin: 0px auto;
   border: none;
   background-color: whitesmoke;
 }
@@ -352,6 +352,7 @@ section {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin-top: 200px;
   }
   .btn {
     cursor: pointer;
@@ -370,7 +371,7 @@ section {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 85vh;
+  height: 100vh;
   color: #ffffff;
 }
 

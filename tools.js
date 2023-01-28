@@ -90,7 +90,7 @@ function secondToggleAccordion(target) {
         target.setAttribute("data-loaded", "true");
       }
     } else {
-      console.log("hehe");
+
       target.setAttribute("aria-expanded", false);
     }
   }

@@ -114,6 +114,6 @@ form.addEventListener('submit',(e)=>{
   console.log(form.children)
 e.preventDefault()
   let data = new FormData(form)
-  let res = Object.entries(data)
+  let res = Object.fromEntries(data)
   console.log(res,data.keys())
 })

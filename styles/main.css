@@ -61,6 +61,7 @@ section {
   text-transform: capitalize;
   -webkit-transition: color ease 0.2s;
   transition: color ease 0.2s;
+  cursor: pointer;
 }
 
 .navbar__item:hover {
@@ -183,7 +184,7 @@ section {
   cursor: pointer;
   padding: 0.8em 1em;
   border-radius: 50px;
-  margin: 0px auto;
+  margin: 0 auto;
   border: none;
   background-color: whitesmoke;
 }
@@ -762,5 +763,23 @@ main {
   margin-top: 1em;
   font-size: 2rem;
   text-align: center;
+}
+
+#suggestedForm .btn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.options__grid {
+  margin: 0px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content max-content;
+      grid-template-columns: -webkit-max-content -webkit-max-content;
+      grid-template-columns: max-content max-content;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
 }
 /*# sourceMappingURL=main.css.map */

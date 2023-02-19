@@ -17,14 +17,15 @@ const textSubmit = document.getElementById("textSubmit");
 const textDiv = document.getElementsByClassName("accordion")[0];
 const form = document.getElementById("suggestedForm");
 const inputText = document.getElementById("textArea");
+const avatatBtn = document.getElementById('avatar__img')
 let apiResponse = ["good", "average", "bad"];
 
-
+let textArray
 
 textSubmit.addEventListener("click", () => {
   
   let copy = inputText.value;
-  let textArray = copy.split(".");
+  textArray = copy.split(".");
 
   textArray.forEach((element) => {
     const userDiv = document.createElement("div");
@@ -112,8 +113,20 @@ textDiv.addEventListener("click", (e) => {
 
 form.addEventListener('submit',(e)=>{
   console.log(form.children)
-e.preventDefault()
+  e.preventDefault()
   let data = new FormData(form)
   let res = Object.fromEntries(data)
-  console.log(res,data.keys())
+  let temp = Object.keys(res)
+  temp.forEach((key)=>{
+let index =textArray.indexOf(key)
+console.log(index)
+textArray[index] = res[key]
+  })
+  console.log(textArray)
+})
+
+avatatBtn.addEventListener('click',()=>{
+ const menu  = document.querySelector('.avatar__menu')
+  menu.classList.toggle("open")
+
 })

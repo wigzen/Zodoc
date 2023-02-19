@@ -18,25 +18,12 @@ login.addEventListener("click", () => {
   signupSection.style.display = "grid";
 });
 
-// emailToLogin.addEventListener("click", () => {
-//   signinSection.style.display = "none";
-//   signupSection.style.display = "grid";
 // });
 sigin.addEventListener("click", () => {
   loginSection.style.display = "grid";
   signupSection.style.display = "none";
 });
 
-// allOptions.addEventListener("click", () => {
-//   loginSection.style.display = "grid";
-//   signinSection.style.display = "none";
-// });
-
-// loginWithEmail.addEventListener('click',()=>{
-//     signinSection.style.display = "grid";
-//     loginSection.style.display = "none";
-
-// })
 
 // Compare password START
 let signupPassword = document.getElementById("signup-password");

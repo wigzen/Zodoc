@@ -26,12 +26,17 @@
                 <li class="navbar__item">Contact</li>
             </ul>
             <div class="navbar__btn">
-                <p role="button" class="navbar__item">Login</p>
-                <button class="btn btn--green">
-                    <a href="./signup.html">
-                        Get Started--It's Free
-                    </a>
-                </button>
+              <div class="avatar">
+                <div class="avatar__img" id="avatar__img">
+
+                </div>
+                <ul class="avatar__menu">
+                  <li> Hi Username</li>
+                  <li>Settings</li>
+                  <li>Logout</li>
+
+                </ul>
+              </div>
                 <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
 
             </div>
@@ -40,10 +45,12 @@
     </nav> 
     <!-- Navbar END -->
     <main>
-        <div class="tools__form">
+        <!-- <div class="tools__form"> -->
+          <form  class="tools__form">
             <textarea name="" id="textArea" cols="30" rows="10" placeholder="Write or Paste" class="textarea"></textarea>
             <button class="btn btn--green"  id="textSubmit">Submit</button>
-        </div>
+          </form>
+        <!-- </div> -->
         <div>
 
              <div class="container">
@@ -305,3 +312,13 @@
 </body>
 
 </html>
+<!-- @guest
+        <button class="login"><a href="{{ route('login') }}">Login</a></button>
+        <button class="login"><a href="{{ route('register') }}">Register</a></button>
+        @else
+        <li>
+	        <ul class="nav navbar-nav navbar-right action-btn-dropdown mrt10">
+
+	            <li class="dropdown ">
+	                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome
+	                    {{ ucfirst(Auth::user()->first_name) }}<b class="caret"></b></a> -->

@@ -32,6 +32,7 @@ section {
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 0px 1px black;
   &__logo {
     font-size: 2rem;
   }
@@ -407,10 +408,10 @@ transform: scale(1.05);
     position: absolute;
     top: 13px;
     left: 16px;
-    // color: #ffffff;
+
     text-transform: capitalize;
     transition: transform 0.5s;
-    // font-size: 18px;
+
   }
   input:not(:placeholder-shown) + .input__label,input:focus + .input__label{
     background-color: #dcfaf2;
@@ -523,9 +524,6 @@ background-color: $bg;
 .open{
 display: block;
 }
-.close{
-  display: none;
-}
 
 .accordion {
   .accordion-item {
@@ -634,6 +632,7 @@ display: block;
 }
 
 .scores{
+  display: flex;
 text-align: center;
 color: white;
 border-radius: 10px;
@@ -676,4 +675,12 @@ margin-bottom: 1rem;
   grid-template-columns: max-content max-content;
   justify-content: center;
   gap: 1rem;
+}
+.score{
+  color:  white;
+  padding: 0px 10px;
+  // padding: 1em;
+}
+.score:last-child{
+  border-left: 1px solid white;
 }

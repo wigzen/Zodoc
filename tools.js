@@ -1,33 +1,24 @@
-// const items = document.querySelectorAll(".accordion button");
-
-// function toggleAccordion() {
-//   const itemToggle = this.getAttribute("aria-expanded");
-
-//   for (let i = 0; i < items.length; i++) {
-//     items[i].setAttribute("aria-expanded", "false");
-//   }
-
-//   if (itemToggle == "false") {
-//     this.setAttribute("aria-expanded", "true");
-//     // api call
-//   }
-// }
-// items.forEach((item) => item.addEventListener("click", toggleAccordion));
 const textSubmit = document.getElementById("textSubmit");
 const textDiv = document.getElementsByClassName("accordion")[0];
 const form = document.getElementById("suggestedForm");
 const inputText = document.getElementById("textArea");
-const avatatBtn = document.getElementById('avatar__img')
-let apiResponse = ["good", "average", "bad"];
+const avatatBtn = document.getElementById("avatar__img");
+const final__form =document.getElementById('final__form')
+const apiResponse = ["good", "average", "bad"];
+const improve = document.getElementById("improve")
 
-let textArray
 
-textSubmit.addEventListener("click", () => {
-  
+let textArray =[];
+textSubmit.addEventListener("click", (e) => {
+  // console.log(textDiv)
+  e.preventDefault();
   let copy = inputText.value;
   textArray = copy.split(".");
 
   textArray.forEach((element) => {
+    if(element.length>0){
+
+    
     const userDiv = document.createElement("div");
     userDiv.classList.add("accordion-item");
     // console.log(userDiv);
@@ -39,11 +30,13 @@ textSubmit.addEventListener("click", () => {
     ${element}
     </p>
     <div class="scores">
- 12
+    <div class="score">10</div>
+    <div  class="score" >15</div>
     </div>
     </span>
-    
-    <span class="icon" aria-hidden="true"></span>
+    <input type="checkbox" value="${element}" name="${element}" />
+
+
     </button>
     <div class="accordion-content">
     <ul class="accordion-content--list">
@@ -51,52 +44,50 @@ textSubmit.addEventListener("click", () => {
     </div>
     `;
 
-    textDiv.appendChild(userDiv);
+    textDiv.appendChild(userDiv);}
   });
+
+
 });
 
-
 function secondToggleAccordion(target) {
-  const name =target.querySelector(".accordion-title-match").innerText
-  console.log(name)
-    if (target.getAttribute("aria-expanded") != "true") {
-      // console.log(target.getAttribute("aria-expanded"));
-      const isloaded = target.getAttribute("data-loaded");
-      target.setAttribute("aria-expanded", true);
-    
-  
-      const content = target.parentNode.children[1].children[0];
-      console.log(content);
-      if (isloaded == "false") {
-        apiResponse.forEach((element) => {
-          // console.log(temp);
-  
-          content.insertAdjacentHTML(
-            "beforeend",
-            `
+  const name = target.querySelector(".accordion-title-match").innerText;
+  console.log(name);
+  if (target.getAttribute("aria-expanded") != "true") {
+    // console.log(target.getAttribute("aria-expanded"));
+    const isloaded = target.getAttribute("data-loaded");
+    target.setAttribute("aria-expanded", true);
+
+    const content = target.parentNode.children[1].children[0];
+    console.log(content);
+    if (isloaded == "false") {
+      apiResponse.forEach((element) => {
+        // console.log(temp);
+
+        content.insertAdjacentHTML(
+          "beforeend",
+          `
     <li class="flex">
     <label
       >${element}</label
     >
     <div class="flex">
       <div class="scores">
-10
+      10
       </div>
-      <input type="radio" value="${element}" name="${name}" />
+      <!---input type="radio" value="${element}" name="${name}" -/--->
     </div>
   </li>
     `
-          );
-        });
-        target.setAttribute("data-loaded", "true");
-      }
-    } else {
-
-      target.setAttribute("aria-expanded", false);
+        );
+      });
+      target.setAttribute("data-loaded", "true");
     }
+  } else {
+    target.setAttribute("aria-expanded", false);
   }
-  
-  
+}
+
 textDiv.addEventListener("click", (e) => {
   let target = e.target;
 
@@ -110,23 +101,37 @@ textDiv.addEventListener("click", (e) => {
   }
 });
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let data = new FormData(form);
+  let res = Object.fromEntries(data);
+  let temp = Object.keys(res);
 
-form.addEventListener('submit',(e)=>{
-  console.log(form.children)
-  e.preventDefault()
-  let data = new FormData(form)
-  let res = Object.fromEntries(data)
-  let temp = Object.keys(res)
-  temp.forEach((key)=>{
-let index =textArray.indexOf(key)
-console.log(index)
-textArray[index] = res[key]
-  })
-  console.log(textArray)
-})
+  console.log(data, res, temp)
+  temp.forEach((key) => {
+    console.log(key)
+    let index = textArray.indexOf(key);
+    console.log(index);
+    textArray[index] = res[key];
+  });
+  console.log(textArray);
+let newParagraph =""
+for(let i =0 ; i<textArray.length;i++){
+  newParagraph = newParagraph+ textArray[i]
+}
+  final__form.innerHTML =`
+  <textarea name="" id="verifybox" cols="30" rows="10" placeholder="Write or Paste" class="textarea" disabled   >
+  ${newParagraph}
+  </textarea>
+  <button class="btn btn--green" id="verifyBtn">Submit</button>
+  
+  `
 
-avatatBtn.addEventListener('click',()=>{
- const menu  = document.querySelector('.avatar__menu')
-  menu.classList.toggle("open")
+});
 
-})
+avatatBtn.addEventListener("click", () => {
+  const menu = document.querySelector(".avatar__menu");
+  menu.classList.toggle("open");
+});
+
+

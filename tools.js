@@ -109,8 +109,8 @@ form.addEventListener("submit", (e) => {
   let res = Object.fromEntries(data);
   let temp = Object.keys(res);
 
-  const card = template.content.cloneNode(true)
-  console.log( temp)
+
+
   temp.forEach((key,idx) => {
     temp[idx] = apiResponse[idx] ??temp[idx]
     const resText = document.createElement('div')
